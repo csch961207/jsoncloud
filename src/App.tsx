@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="App">
       <Button type="primary">Button</Button>
-      <JsonEditor value={json} themeBgColor={"bull"} />
+      <div className="" style={{ margin: "250px", marginTop: "50px" }}>
+        <JsonEditor value={json} />
+      </div>
     </div>
   );
 }

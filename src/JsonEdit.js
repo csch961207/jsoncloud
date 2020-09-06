@@ -38,26 +38,26 @@ class JsonEditor extends PureComponent {
         this.jsoneditor.set(this.props.value)
     }
 
-    initViewJsonEditor = () => {
-        const options = {
-            mode: 'view'
-        };
+    // initViewJsonEditor = () => {
+    //     const options = {
+    //         mode: 'view'
+    //     };
 
-        this.viewJsoneditor = new JSONEditor(this.viewContainer, options)
-        this.viewJsoneditor.set(this.props.value)
-    }
+    //     this.viewJsoneditor = new JSONEditor(this.viewContainer, options)
+    //     this.viewJsoneditor.set(this.props.value)
+    // }
 
-    componentDidMount () {
+    componentDidMount() {
         this.initJsonEditor()
-        this.initViewJsonEditor()
+        // this.initViewJsonEditor()
         // 设置主题色
         this.container.querySelector('.jsoneditor-menu').style.backgroundColor = this.props.themeBgColor
         this.container.querySelector('.jsoneditor').style.border = `thin solid ${this.props.themeBgColor}`
-        this.viewContainer.querySelector('.jsoneditor-menu').style.backgroundColor = this.props.themeBgColor
-        this.viewContainer.querySelector('.jsoneditor').style.border = `thin solid ${this.props.themeBgColor}`
+        // this.viewContainer.querySelector('.jsoneditor-menu').style.backgroundColor = this.props.themeBgColor
+        // this.viewContainer.querySelector('.jsoneditor').style.border = `thin solid ${this.props.themeBgColor}`
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         if (this.jsoneditor) {
             this.jsoneditor.destroy()
             this.viewJsoneditor.destroy()
@@ -65,7 +65,7 @@ class JsonEditor extends PureComponent {
     }
 
     componentDidUpdate() {
-        if(this.jsoneditor) {
+        if (this.jsoneditor) {
             this.jsoneditor.update(this.props.json)
             this.viewJsoneditor.update(this.props.json)
         }
@@ -74,8 +74,8 @@ class JsonEditor extends PureComponent {
     render() {
         return (
             <div className="jsonEditWrap">
-                <div className="jsoneditor-react-container" ref={elem => this.container = elem} />
-                <div className="jsoneditor-react-container" ref={elem => this.viewContainer = elem} />
+                <div className="jsoneditor-react-container" style={{ "height": "500px" }} ref={elem => this.container = elem} />
+                {/* <div className="jsoneditor-react-container" ref={elem => this.viewContainer = elem} /> */}
             </div>
         );
     }
